@@ -19,6 +19,18 @@
         <activity
             android:name=".Encriptado"
             android:label="@string/title_activity_encriptado"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Menu"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".InfoNane"
+            android:label="@string/title_activity_info_nane"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Tutorial"
+            android:label="@string/title_activity_tutorial"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

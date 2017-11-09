@@ -4,4 +4,7 @@
     <string name="toolbar_sign_out" />
     <string name="action_settings" />
     <string name="action_btnllave" />
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_info_nane">InfoNane</string>
+    <string name="title_activity_tutorial">Tutorial</string>
 </resources>
