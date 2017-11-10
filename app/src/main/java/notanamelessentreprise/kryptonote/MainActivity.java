@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView layoutMenu;
+    private TextView layoutMenu;
 
     private Context context;
     @Override
@@ -19,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         context = this;
 //        setContentView(R.layout.activity_edit_nota);
-        Intent intent = new Intent(context, EditNota.class);
-        startActivity(intent);
+        //Intent intent = new Intent(context, EditNota.class);
+        //startActivity(intent);
 
-        layoutMenu=(ImageView) findViewById(R.id.layoutMenu);
+        layoutMenu=(TextView) findViewById(R.id.layoutMenu);
 
         layoutMenu.setOnClickListener(new View.OnClickListener() {
             @Override

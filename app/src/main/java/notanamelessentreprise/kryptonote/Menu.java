@@ -1,6 +1,7 @@
 package notanamelessentreprise.kryptonote;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
@@ -29,7 +30,9 @@ public class Menu extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        context = this;
 
+        // boton flotante animado
         FabSpeedDial fabSpeedDial = (FabSpeedDial)findViewById(R.id.fabSpeedDial);
         fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
             @Override
@@ -39,7 +42,15 @@ public class Menu extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
-                Toast.makeText(Menu.this, ""+ menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(Menu.this, ""+ menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+
+                if(menuItem.getTitle().toString().equals("Nota")){
+                    Intent intent = new Intent(context, EditNota.class);
+                    startActivity(intent);
+
+                }else if(menuItem.getTitle().toString().equals("Audio")){
+                    Toast.makeText(Menu.this, "Proximamente", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
 
@@ -50,7 +61,7 @@ public class Menu extends AppCompatActivity {
         });
     }
 
-
+    //menu tres puntos
     @Override
     public boolean onCreateOptionsMenu(android.view.Menu menu) {
         menu.add(android.view.Menu.NONE, opcion1, android.view.Menu.NONE, "PIN");
