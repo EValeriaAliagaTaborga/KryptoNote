@@ -5,8 +5,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ImageView layoutMenu;
 
     private Context context;
     @Override
@@ -17,6 +21,16 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(R.layout.activity_edit_nota);
         Intent intent = new Intent(context, EditNota.class);
         startActivity(intent);
+
+        layoutMenu=(ImageView) findViewById(R.id.layoutMenu);
+
+        layoutMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Menu.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 
