@@ -2,18 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_call"
-        android:icon="@drawable/ic_call"
-        android:title="Call"
+        android:id="@+id/action_note"
+        android:icon="@drawable/ic_note"
+        android:title="Note"
         />
     <item
-        android:id="@+id/action_text"
-        android:icon="@drawable/ic_chat"
-        android:title="Chat"
+        android:id="@+id/action_audio"
+        android:icon="@drawable/ic_audio"
+        android:title="Audio"
         />
-    <item
-        android:id="@+id/action_email"
-        android:icon="@drawable/ic_email"
-        android:title="Email"
-        />
+
 </menu>
