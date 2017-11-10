@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/btnllave"
+        android:icon="@drawable/llave01"
+        android:title="@string/action_btnllave"
+        app:showAsAction="ifRoom" />
+
+</menu>
