@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/Password"
+        android:id="@+id/lblPasswordInd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contraseña" />
+        android:text="Clave" />
 
     <EditText
-        android:id="@+id/pass"
+        android:id="@+id/txtPasswordInd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:background="@color/colorPrimaryDark"
         android:hint="Ingrese una contrasenia"
-        android:inputType="numberPassword" />
-
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:background="@color/colorPrimary"
+        android:ems="10" />
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -26,16 +26,16 @@
 
         <TableRow >
             <Button
-                android:id="@+id/cancel"
+                android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cancelar" />
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/btnGuardarContInd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Aceptar" />
+                android:text="Guardar" />
         </TableRow>
     </TableLayout>
 

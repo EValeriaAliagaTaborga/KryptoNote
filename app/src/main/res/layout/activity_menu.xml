@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="notanamelessentreprise.kryptonote.Menu">
+    tools:context="notanamelessentreprise.kryptonote.MenuActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,49 +22,40 @@
     </android.support.design.widget.AppBarLayout>
 
 
+    <ScrollView
+        android:id="@+id/scrGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appBarLayout2"
+        android:layout_above="@+id/fabSpeedDial">
+
+               <GridLayout
+                   android:id="@+id/grdLista"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:clipToPadding="false"
+                   android:columnCount="2">
+
+
+        </GridLayout>
+
+    </ScrollView>
 
     <io.github.yavski.fabspeeddial.FabSpeedDial
         android:id="@+id/fabSpeedDial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_gravity="bottom|end"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="10dp"
         app:fabGravity="bottom_end"
+
         app:fabMenu="@menu/main_menu"
         app:miniFabBackgroundTint="@android:color/white"
         app:miniFabDrawableTint="?attr/colorPrimaryDark"
-        app:miniFabTitleTextColor="?attr/colorPrimaryDark"
-
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/appBarLayout2">
-
-        <GridLayout
-            android:id="@+id/grdLista"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-
-            android:columnCount="2">
-
-            <!--
-            <TextView
-                android:id="@+id/noMensajes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="No hay notas"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="20dp" />
-            -->
-        </GridLayout>
-    </ScrollView>
+        app:miniFabTitleTextColor="?attr/colorPrimaryDark" />
 
 </RelativeLayout>

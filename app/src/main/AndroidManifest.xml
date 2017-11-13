@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EditNota" />
+        <activity
+            android:name=".EditNota"
+            android:label="EditNota"/>
         <activity
             android:name=".Encriptado"
             android:label="@string/title_activity_encriptado"
@@ -32,7 +34,7 @@
             android:label="@string/title_activity_tutorial"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Menu"
+            android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
