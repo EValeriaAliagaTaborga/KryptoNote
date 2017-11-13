@@ -28,6 +28,12 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'
+    //boton flotante animado
     compile 'io.github.yavski:fab-speed-dial:1.0.6'
+    //pattern lock view
+    compile 'com.andrognito.patternlockview:patternlockview:1.0.0'
+    // Optional, for RxJava2 adapter
+    compile 'com.andrognito.patternlockview:patternlockview-reactive:1.0.0'
+
     testCompile 'junit:junit:4.12'
 }
