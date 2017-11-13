@@ -30,6 +30,7 @@ public class EditNota extends AppCompatActivity {
 
     String[] datosNota = new String[5];
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
