@@ -41,6 +41,7 @@ public class Menu extends AppCompatActivity {
     private GridLayout grdLista;
     private GridView icono;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
