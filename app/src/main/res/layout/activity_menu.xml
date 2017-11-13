@@ -6,20 +6,11 @@
     android:layout_height="match_parent"
     tools:context="notanamelessentreprise.kryptonote.Menu">
 
-    <TextView
-        android:id="@+id/noMensajes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="No hay notas"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="20dp" />
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/appBarLayout2">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -47,5 +38,33 @@
         android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appBarLayout2">
+
+        <GridLayout
+            android:id="@+id/grdLista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+
+            android:columnCount="2">
+
+            <!--
+            <TextView
+                android:id="@+id/noMensajes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="No hay notas"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20dp" />
+            -->
+        </GridLayout>
+    </ScrollView>
 
 </RelativeLayout>

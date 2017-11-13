@@ -9,7 +9,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.TextureView;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.GridLayout;
+import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import io.github.yavski.fabspeeddial.FabSpeedDial;
@@ -23,6 +29,9 @@ public class Menu extends AppCompatActivity {
 
     private Context context;
 
+    private GridLayout grdLista;
+    private GridView icono;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +40,14 @@ public class Menu extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         context = this;
+
+        grdLista = (GridLayout) findViewById(R.id.grdLista);
+        grdLista.setColumnCount(2);
+
+        TextView txtNota = new TextView(context);
+        txtNota.setText("Nota1");
+
+        grdLista.addView(txtNota);
 
         // boton flotante animado
         FabSpeedDial fabSpeedDial = (FabSpeedDial)findViewById(R.id.fabSpeedDial);
@@ -68,5 +85,7 @@ public class Menu extends AppCompatActivity {
         menu.add(android.view.Menu.NONE, opcion2, android.view.Menu.NONE, "Información de la aplicación");
         menu.add(android.view.Menu.NONE, opcion3, android.view.Menu.NONE, "Eiminar");
         return super.onCreateOptionsMenu(menu);
+
+
     }
 }
