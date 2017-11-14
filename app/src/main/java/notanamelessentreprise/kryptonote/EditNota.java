@@ -28,8 +28,10 @@ public class EditNota extends AppCompatActivity {
     public static final int VERSION = 1;
     private BaseDeDatos baseDeDatos;
 
-    String[] datosNota = new String[5];
-
+    private String[] datosNota = new String[5];
+    private boolean existe = false;
+    private String[] datosExistentes = new String[5];
+    private int contID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,18 @@ public class EditNota extends AppCompatActivity {
         txtNota = (EditText) findViewById(R.id.txtCuerpo);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent recibe = getIntent();
+        existe = recibe.getBooleanExtra("existe",false);
+        if(existe) {
+            datosExistentes = recibe.getStringArrayExtra("datos_nota");
+            txtTitulo.setText(datosExistentes[0]);
+            txtNota.setText(datosExistentes[1]);
+            contID = recibe.getIntExtra("contador_id",0);
+        } else {
+            contID = recibe.getIntExtra("contador_id",0);
+            Toast.makeText(context,contID+"",Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -98,8 +112,12 @@ public class EditNota extends AppCompatActivity {
                         datosNota[3] = txtNota.getText().toString();
                         datosNota[4] = txtContrasenia.getText().toString();
 
-                        Nota nota = new Nota(datosNota);
-                        baseDeDatos.guardarNota(nota);
+                        Nota nota = new Nota(datosNota, contID);
+                        if(!existe) {
+                            baseDeDatos.guardarNota(nota);
+                        } else {
+                            baseDeDatos.actualizarNota(nota);
+                        }
                         db.close();
 
                         Toast.makeText(context,"guardado exitoso",Toast.LENGTH_SHORT).show();

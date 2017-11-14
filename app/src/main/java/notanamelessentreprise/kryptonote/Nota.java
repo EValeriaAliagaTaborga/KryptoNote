@@ -13,14 +13,16 @@ public class Nota {
     private String contrasenia;
     private String tituloEncriptado;
     private String notaEncriptada;
+    private int id;
 
 
-    public Nota(String [] nota) {
+    public Nota(String [] nota, int id) {
         this.titulo = nota[0];
         this.nota = nota[1];
         this.tituloEncriptado = nota[2];
         this.notaEncriptada = nota[3];
         this.contrasenia = nota[4];
+        this.id = id;
     }
 
     public String getNota() {
@@ -63,7 +65,23 @@ public class Nota {
         this.notaEncriptada = notaEncriptada;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public ContentValues toContentValues() {
+        ContentValues values = new ContentValues();
+        values.put(NotaContract.NotaEntry._ID, id);
+        values.put(NotaContract.NotaEntry.TITLE, titulo);
+        values.put(NotaContract.NotaEntry.NOTE, nota);
+        values.put(NotaContract.NotaEntry.PASSWORD, contrasenia);
+        values.put(NotaContract.NotaEntry.ENCRYPNOTE, notaEncriptada);
+        values.put(NotaContract.NotaEntry.ENCRYPTITLE, tituloEncriptado);
+
+        return values;
+    }
+
+    public ContentValues toContentValuesSinId() {
         ContentValues values = new ContentValues();
         values.put(NotaContract.NotaEntry.TITLE, titulo);
         values.put(NotaContract.NotaEntry.NOTE, nota);
@@ -73,4 +91,5 @@ public class Nota {
 
         return values;
     }
+
 }

@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.IntegerRes;
 import android.support.design.internal.NavigationMenu;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -35,7 +36,6 @@ public class MenuActivity extends AppCompatActivity {
     private static final int opcion3 = 3;
     private static final int opcion4 = 4;
 
-
     private Context context;
 
     private GridLayout grdLista;
@@ -44,6 +44,8 @@ public class MenuActivity extends AppCompatActivity {
     public static final int VERSION = 1;
 
     List<String[]> list = new ArrayList();
+
+    private int contID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,11 +89,12 @@ public class MenuActivity extends AppCompatActivity {
                 array[3] = notas_existentes.getString(3);
                 array[4] = notas_existentes.getString(4);
                 list.add(cont,array);
+//                contID = Integer.parseInt(notas_existentes.getString(5));
                 cont++;
             }while(notas_existentes.moveToNext());
         }
 
-        int totNotas = grdLista.getChildCount();
+        final int totNotas = grdLista.getChildCount();
 
         for (int i= 0; i < totNotas; i++){
             final TextView icono = (TextView) grdLista.getChildAt(i);
@@ -103,6 +106,7 @@ public class MenuActivity extends AppCompatActivity {
                     Intent intent = new Intent(context, Encriptado.class);
                    // intent.putExtra("titulo_nota", icono.getText());
                     intent.putExtra("datos_nota",list.get(iconoID));
+                    intent.putExtra("contador_id", iconoID);
                     startActivity(intent);
                 }
             });
@@ -123,6 +127,7 @@ public class MenuActivity extends AppCompatActivity {
 
                 if(menuItem.getTitle().toString().equals("Nota")){
                     Intent intent = new Intent(context, EditNota.class);
+                    intent.putExtra("contador_id", grdLista.getChildCount());
                     finish();
                     startActivity(intent);
 
