@@ -33,6 +33,7 @@ public class Encriptado extends AppCompatActivity {
     private static final int opcion3 = 3;
     private static final int opcion4 = 4;
 
+    private int contId = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class Encriptado extends AppCompatActivity {
         datos = recibe.getStringArrayExtra("datos_nota");
         datosAux = datos;
         mostratEncriptado = recibe.getBooleanExtra("estado",true);
+        contId = recibe.getIntExtra("contador_id", 0);
 
         contasenia = datos[4];
         if(!mostratEncriptado) {
@@ -105,6 +107,7 @@ public class Encriptado extends AppCompatActivity {
                             finish();
                             intent.putExtra("estado",mostratEncriptado);
                             intent.putExtra("datos_nota",datosAux);
+                            intent.putExtra("contador_id", contId);
                             startActivity(intent);
                         } else {
                             mostratEncriptado = true;
@@ -134,6 +137,8 @@ public class Encriptado extends AppCompatActivity {
                 Intent ed = new Intent(context, EditNota.class);
                 finish();
                 ed.putExtra("datos_nota",datos);
+                ed.putExtra("existe",true);
+                ed.putExtra("contador_id",contId);
                 startActivity(ed);
                 break;
             case opcion3:

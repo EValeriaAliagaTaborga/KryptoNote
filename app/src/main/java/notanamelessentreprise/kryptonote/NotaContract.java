@@ -13,7 +13,7 @@ public class NotaContract {
 
     public static abstract class NotaEntry implements BaseColumns {
         public static final String TABLE_NAME ="notas";
-
+        public static final String _ID = "id";
         public static final String TITLE = "titulo";
         public static final String NOTE = "nota";
         public static final String ENCRYPTITLE = "tituloEncriptado";
