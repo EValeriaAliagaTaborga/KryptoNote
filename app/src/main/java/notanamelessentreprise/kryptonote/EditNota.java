@@ -45,8 +45,8 @@ public class EditNota extends AppCompatActivity {
         txtNota = (EditText) findViewById(R.id.txtCuerpo);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     //        menu.add(MenuActivity.NONE, 1, MenuActivity.NONE, "Guardar");
@@ -67,7 +67,7 @@ public class EditNota extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
+                //onBackPressed();
                 Intent a=new Intent(context, MenuActivity.class);
                 finish();
                 startActivity(a);

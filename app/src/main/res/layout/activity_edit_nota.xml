@@ -15,17 +15,17 @@
             android:layout_height="wrap_content"
             android:text="Titulo" />
 
-        <EditText
-            android:id="@+id/txtTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/lblTitulo"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lblTitulo"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-        <TextView
+    <TextView
             android:id="@+id/lblCuerpo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

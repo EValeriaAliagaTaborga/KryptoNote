@@ -25,8 +25,7 @@
             android:label="EditNota"/>
         <activity
             android:name=".Encriptado"
-            android:label="@string/title_activity_encriptado"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="@string/title_activity_encriptado" />
         <activity
             android:name=".InfoNane"
             android:label="@string/title_activity_info_nane"

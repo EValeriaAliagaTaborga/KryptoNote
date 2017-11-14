@@ -22,6 +22,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.yavski.fabspeeddial.FabSpeedDial;
 
 public class MenuActivity extends AppCompatActivity {
@@ -39,6 +42,8 @@ public class MenuActivity extends AppCompatActivity {
 
     private SQLiteDatabase db;
     public static final int VERSION = 1;
+
+    List<String[]> list = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +64,12 @@ public class MenuActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getSize(size);
         int anchoPantalla = (int) size.x / 2;
 
+        int cont = 0;
         Cursor notas_existentes = db.rawQuery("SELECT titulo, nota, tituloEncriptado, notaEncriptada, contrasenia FROM notas", null);
         if(notas_existentes.moveToFirst())
         {
             do{
+                String[] array = new String[5];
                 TextView txtNota = new TextView(context);
                 txtNota.setText(notas_existentes.getString(0));
                 txtNota.setGravity(Gravity.CENTER);
@@ -74,11 +81,32 @@ public class MenuActivity extends AppCompatActivity {
                 txtNota.setTypeface(null, Typeface.BOLD);
                 txtNota.setTextSize(19);
                 grdLista.addView(txtNota);
-
+                array[0] = notas_existentes.getString(0);
+                array[1] = notas_existentes.getString(1);
+                array[2] = notas_existentes.getString(2);
+                array[3] = notas_existentes.getString(3);
+                array[4] = notas_existentes.getString(4);
+                list.add(cont,array);
+                cont++;
             }while(notas_existentes.moveToNext());
         }
 
+        int totNotas = grdLista.getChildCount();
 
+        for (int i= 0; i < totNotas; i++){
+            final TextView icono = (TextView) grdLista.getChildAt(i);
+            final int iconoID = i;
+            icono.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    Toast.makeText(context, iconoID+"", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(context, Encriptado.class);
+                   // intent.putExtra("titulo_nota", icono.getText());
+                    intent.putExtra("datos_nota",list.get(iconoID));
+                    startActivity(intent);
+                }
+            });
+        }
 
 
         // boton flotante animado
@@ -95,6 +123,7 @@ public class MenuActivity extends AppCompatActivity {
 
                 if(menuItem.getTitle().toString().equals("Nota")){
                     Intent intent = new Intent(context, EditNota.class);
+                    finish();
                     startActivity(intent);
 
                 }else if(menuItem.getTitle().toString().equals("Audio")){
@@ -109,6 +138,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
     }
+
 
     //menu tres puntos
     @Override
