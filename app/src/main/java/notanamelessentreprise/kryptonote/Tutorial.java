@@ -47,15 +47,15 @@ public class Tutorial extends AppCompatActivity {
         TextSliderView textSliderView3 = new TextSliderView(this);
         textSliderView3
                 .description("Paso 3")
-                .image(R.drawable.img02);
+                .image(R.drawable.img04);
         sliderShow.addSlider(textSliderView3);
 
         //Slide con daimajia 4
         TextSliderView textSliderView4 = new TextSliderView(this);
         textSliderView4
                 .description("Paso 4")
-                .image(R.drawable.img03);
-        textSliderView3.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+                .image(R.drawable.img05);
+        textSliderView4.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
             @Override
             public void onSliderClick(BaseSliderView baseSliderView) {
                 Toast.makeText(context, "¡Crea una nota!", Toast.LENGTH_SHORT).show();
