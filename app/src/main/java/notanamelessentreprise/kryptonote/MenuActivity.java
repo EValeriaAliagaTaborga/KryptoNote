@@ -92,7 +92,7 @@ public class MenuActivity extends AppCompatActivity {
                 txtNota.setGravity(Gravity.CENTER);
                 txtNota.setBackgroundResource(R.drawable.previewnota1);
                 txtNota.setTextColor(Color.rgb(12,69,35));
-                txtNota.setLayoutParams(new GridView.LayoutParams(anchoPantalla,500));
+                txtNota.setLayoutParams(new GridView.LayoutParams(anchoPantalla,300));
                 txtNota.setPadding(40,150,40,0);
                 txtNota.setTypeface(null, Typeface.BOLD);
                 txtNota.setTextSize(19);
