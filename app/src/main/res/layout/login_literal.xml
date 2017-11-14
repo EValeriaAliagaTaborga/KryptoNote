@@ -5,28 +5,27 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/lblPasswordInd"
+        android:id="@+id/lblPin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Ingrese el pin de acceso"
         android:layout_marginStart="35dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
-        android:text="Clave"
-        android:textColor="@android:color/black"/>
+        android:textColor="@android:color/black"
+        />
 
     <EditText
-        android:id="@+id/txtPasswordInd"
+        android:id="@+id/txtPin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese una contrasenia"
-
-        android:textColorHint="@android:color/holo_green_dark"
+        android:inputType="numberPassword"
+        android:maxLines="1"
         android:layout_marginStart="35dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
-        android:inputType="textPassword"
-        android:maxLines="1"
         android:textColor="@android:color/black"
+        android:textColorHint="@android:color/holo_green_dark"
         android:ems="10" />
 
     <TableLayout
@@ -36,17 +35,17 @@
 
         <TableRow >
             <Button
-                android:id="@+id/btnCancel"
+                android:id="@+id/btnCancelarPin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cancelar"
                 android:textColor="@android:color/black"/>
 
             <Button
-                android:id="@+id/btnGuardarContInd"
+                android:id="@+id/btnIngresar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Guardar"
+                android:text="Aceptar"
                 android:textColor="@android:color/black"/>
         </TableRow>
     </TableLayout>

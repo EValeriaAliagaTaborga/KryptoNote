@@ -58,7 +58,7 @@ public class EditNota extends AppCompatActivity {
             contID = recibe.getIntExtra("contador_id",0);
         } else {
             contID = recibe.getIntExtra("contador_id",0);
-            Toast.makeText(context,contID+"",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,contID+"",Toast.LENGTH_SHORT).show();
         }
     }
 

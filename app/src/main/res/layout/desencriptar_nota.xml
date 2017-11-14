@@ -18,13 +18,14 @@
         android:id="@+id/txtClave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
+        android:layout_marginEnd="30dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="30dp"
-        android:maxLines="1"
         android:ems="10"
-        android:textColorHint="@android:color/holo_green_dark"/>
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/holo_green_dark" />
 
     <TableLayout
         android:layout_width="wrap_content"
