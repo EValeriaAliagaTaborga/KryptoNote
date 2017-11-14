@@ -118,6 +118,7 @@ public class EditNota extends AppCompatActivity {
                             baseDeDatos.guardarNota(nota);
                         } else {
                             baseDeDatos.actualizarNota(nota);
+
                         }
                         db.close();
 
