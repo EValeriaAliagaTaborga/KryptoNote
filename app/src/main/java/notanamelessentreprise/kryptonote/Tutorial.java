@@ -32,7 +32,7 @@ public class Tutorial extends AppCompatActivity {
         TextSliderView textSliderView = new TextSliderView(this);
         textSliderView
                 .description("Paso 1")
-                .image(R.drawable.background);
+                .image(R.drawable.img01);
         sliderShow.addSlider(textSliderView);
 
 
@@ -40,14 +40,14 @@ public class Tutorial extends AppCompatActivity {
         TextSliderView textSliderView2 = new TextSliderView(this);
         textSliderView2
                 .description("Paso 2")
-                .image(R.drawable.background);
+                .image(R.drawable.img02);
         sliderShow.addSlider(textSliderView2);
 
         //Slide con daimajia 3
         TextSliderView textSliderView3 = new TextSliderView(this);
         textSliderView3
                 .description("Paso 3")
-                .image(R.drawable.background);
+                .image(R.drawable.img03);
         textSliderView3.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
             @Override
             public void onSliderClick(BaseSliderView baseSliderView) {
