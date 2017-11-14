@@ -399,8 +399,6 @@ public class Encriptado extends AppCompatActivity {
         } else {
             menu.add(android.view.Menu.NONE, opcion1, android.view.Menu.NONE, "Cerrar y codificar");
             menu.add(android.view.Menu.NONE, opcion2, android.view.Menu.NONE, "Editar");
-            menu.add(android.view.Menu.NONE, opcion3, android.view.Menu.NONE, "Cambiar Clave");
-            menu.add(android.view.Menu.NONE, opcion4, android.view.Menu.NONE, "Eliminar");
         }
         return true;
     }
@@ -412,7 +410,12 @@ public class Encriptado extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
+                //onBackPressed();
+                Intent intent = new Intent(context, MenuActivity.class);
+                finish();
+                startActivity(intent);
+
+
                 break;
             case R.id.btnllave:
 
@@ -472,10 +475,6 @@ public class Encriptado extends AppCompatActivity {
                 ed.putExtra("existe",true);
                 ed.putExtra("contador_id",contId);
                 startActivity(ed);
-                break;
-            case opcion3:
-                break;
-            case opcion4:
                 break;
             default:
                 return super.onOptionsItemSelected(item);

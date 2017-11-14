@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     public static boolean conCuentaVerdadera = false;
     public static boolean conCuentaFalsa = false;
 
+    String pasV;
+    String pasF;
     private Context context;
 
     public static void setConCuenta(boolean nuevoConCuenta) {
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                             String passwordV_almacenado = prefs.getString("passwordV","");
                             String passwordF_almacenado = prefs.getString("passwordF","");
 
-                            if(txtPin.getText().toString().equals(passwordV_almacenado) && txtPin.getText().toString().equals("")) {
+                            if(passwordV_almacenado.compareTo(txtPin.getText().toString()) == 0 && passwordV_almacenado.compareTo("")!= 0) {
                                 dialogo.dismiss();
 
                                 //Ingreso con Pin Correcto
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                                 //finish();
                                 startActivity(a);
 
-                            }else if(txtPin.getText().toString().equals(passwordF_almacenado) && txtPin.getText().toString().equals("")) {
+                            }else if(passwordF_almacenado.compareTo(txtPin.getText().toString()) == 0 && passwordF_almacenado.compareTo("") != 0) {
                                 dialogo.dismiss();
 
                                 //Ingreso con Pin Falso

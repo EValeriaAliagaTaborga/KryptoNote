@@ -66,7 +66,7 @@ public class MenuActivity extends AppCompatActivity {
 
         context = this;
 
-        if(MainActivity.getConCuentaVerdadera() || !MainActivity.getConCuenta()) {
+        if((MainActivity.getConCuentaVerdadera() || !MainActivity.getConCuenta()) && !MainActivity.getConCuentaFalsa()) {
             crearBD = new BaseDeDatos(context, VERSION);
             db = crearBD.getWritableDatabase();
 
@@ -112,7 +112,7 @@ public class MenuActivity extends AppCompatActivity {
                 icono.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View view) {
                         Intent intent = new Intent(context, Encriptado.class);
-//                        finish();
+                        finish();
                         intent.putExtra("datos_nota", list.get(iconoID));
                         intent.putExtra("contador_id", iconoID);
                         startActivity(intent);
@@ -122,12 +122,12 @@ public class MenuActivity extends AppCompatActivity {
                 icono.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View view) {
-                        Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show();
+                        //   Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show();
 
                         AlertDialog.Builder Dialogo = new AlertDialog.Builder(context);
 
                         Dialogo.setTitle("Alerta!");
-                        Dialogo.setMessage("¿Esta seguro que desea borrar la nota?");
+                        Dialogo.setMessage("Esta seguro que desea borrar la nota?");
                         Dialogo.setIcon(R.drawable.ic_note);
 
                         Dialogo.setPositiveButton("Si",
@@ -157,7 +157,7 @@ public class MenuActivity extends AppCompatActivity {
 
                 });
             }
-        }
+
             // boton flotante animado
             FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fabSpeedDial);
             fabSpeedDial.setMenuListener(new FabSpeedDial.MenuListener() {
@@ -187,7 +187,7 @@ public class MenuActivity extends AppCompatActivity {
 
                 }
             });
-
+        }
     }
 
 
@@ -197,7 +197,9 @@ public class MenuActivity extends AppCompatActivity {
         if(!MainActivity.getConCuenta()) {
             menu.add(android.view.Menu.NONE, opcion1, android.view.Menu.NONE, "PIN");
         } else {
-            menu.add(android.view.Menu.NONE, opcion4, android.view.Menu.NONE, "Eliminar PIN");
+            if(!MainActivity.getConCuentaFalsa()) {
+                menu.add(android.view.Menu.NONE, opcion4, android.view.Menu.NONE, "Eliminar PIN");
+            }
         }
         menu.add(android.view.Menu.NONE, opcion2, android.view.Menu.NONE, "Información de la aplicación");
         menu.add(android.view.Menu.NONE, opcion3, android.view.Menu.NONE, "Tutorial");
@@ -259,11 +261,15 @@ public class MenuActivity extends AppCompatActivity {
                                             editor.putString("passwordV", pinV);
                                             editor.putString("passwordF", pinF);
 
+                                            editor.commit();
+
                                             Toast toast1 = Toast.makeText(getApplicationContext(),
                                                 "Se guardaron las dos contrasenias",
                                                 Toast.LENGTH_SHORT);
                                                 toast1.show();
                                             MainActivity.setConCuenta(true);
+
+                                            MainActivity.setConCuentaVerdadera(true);
 
                                             Intent a = new Intent(context, MenuActivity.class);
                                             finish();
