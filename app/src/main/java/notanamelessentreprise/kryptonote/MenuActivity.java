@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.internal.NavigationMenu;
 import android.support.v7.app.AppCompatActivity;
@@ -65,10 +66,13 @@ public class MenuActivity extends AppCompatActivity {
                 TextView txtNota = new TextView(context);
                 txtNota.setText(notas_existentes.getString(0));
                 txtNota.setGravity(Gravity.CENTER);
-                //txtNota.setBackgroundResource(R.drawable.ic_note);
-                txtNota.setBackgroundColor(Color.CYAN);
-                txtNota.setTextColor(Color.BLUE);
-                txtNota.setLayoutParams(new GridView.LayoutParams(anchoPantalla,200));
+                txtNota.setBackgroundResource(R.drawable.previewnota1);
+                //txtNota.setBackgroundColor(Color.CYAN);
+                txtNota.setTextColor(Color.rgb(12,69,35));
+                txtNota.setLayoutParams(new GridView.LayoutParams(anchoPantalla,500));
+                txtNota.setPadding(40,150,40,0);
+                txtNota.setTypeface(null, Typeface.BOLD);
+                txtNota.setTextSize(19);
                 grdLista.addView(txtNota);
 
             }while(notas_existentes.moveToNext());

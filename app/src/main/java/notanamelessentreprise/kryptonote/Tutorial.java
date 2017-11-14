@@ -1,13 +1,21 @@
 package notanamelessentreprise.kryptonote;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
+
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
 public class Tutorial extends AppCompatActivity {
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +24,56 @@ public class Tutorial extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        SliderLayout sliderShow = (SliderLayout) findViewById(R.id.slider);
+        context = this;
+
+
+        //Slide con daimajia
+        TextSliderView textSliderView = new TextSliderView(this);
+        textSliderView
+                .description("Paso 1")
+                .image(R.drawable.background);
+        textSliderView.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onSliderClick(BaseSliderView baseSliderView) {
+                Toast.makeText(context, "Con la más deliciosa carne y calidad.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, MenuActivity.class);
+                startActivity(intent);
             }
         });
+        sliderShow.addSlider(textSliderView);
+
+
+        //Slide con daimajia 2
+        TextSliderView textSliderView2 = new TextSliderView(this);
+        textSliderView2
+                .description("Paso 2")
+                .image(R.drawable.background);
+        textSliderView2.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+            @Override
+            public void onSliderClick(BaseSliderView baseSliderView) {
+                Toast.makeText(context, "De sabor incomparable.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+        sliderShow.addSlider(textSliderView2);
+
+        //Slide con daimajia 3
+        TextSliderView textSliderView3 = new TextSliderView(this);
+        textSliderView3
+                .description("Paso 3")
+                .image(R.drawable.background);
+        textSliderView3.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+            @Override
+            public void onSliderClick(BaseSliderView baseSliderView) {
+                Toast.makeText(context, "Como tu quieras, desde el pan hasta la salsa.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+        sliderShow.addSlider(textSliderView3);
+
     }
 
 }
