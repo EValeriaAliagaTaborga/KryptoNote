@@ -14,7 +14,7 @@ import java.util.List;
 
 import io.paperdb.Paper;
 
-public class lockpattern extends AppCompatActivity {
+public class Lockpattern extends AppCompatActivity {
 
     String save_pattern_key = "pattern_code";
     String final_pattern = "";
@@ -49,9 +49,9 @@ public class lockpattern extends AppCompatActivity {
                 public void onComplete(List<PatternLockView.Dot> pattern) {
                     final_pattern = PatternLockUtils.patternToString(nPatternLockView,pattern);
                     if(final_pattern.equals(save_pattern)){
-                        Toast.makeText(lockpattern.this,"Password correct", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Lockpattern.this,"Password correct", Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(lockpattern.this,"Password incorrect", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Lockpattern.this,"Password incorrect", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -91,7 +91,7 @@ public class lockpattern extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Paper.book().write(save_pattern_key,final_pattern);
-                    Toast.makeText(lockpattern.this, "Saved pattern", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Lockpattern.this, "Saved pattern", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             });

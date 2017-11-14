@@ -8,34 +8,44 @@
         android:id="@+id/lblPasswordInd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clave" />
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:text="Clave"
+        android:textColor="@android:color/black"/>
 
     <EditText
         android:id="@+id/txtPasswordInd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Ingrese una contrasenia"
+        android:textColorHint="@android:color/holo_green_dark"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
         android:inputType="textPassword"
         android:maxLines="1"
-        android:background="@color/colorPrimary"
         android:ems="10" />
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_marginStart="65dp">
 
         <TableRow >
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancelar" />
+                android:text="Cancelar"
+                android:textColor="@android:color/black"/>
 
             <Button
                 android:id="@+id/btnGuardarContInd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Guardar" />
+                android:text="Guardar"
+                android:textColor="@android:color/black"/>
         </TableRow>
     </TableLayout>
 

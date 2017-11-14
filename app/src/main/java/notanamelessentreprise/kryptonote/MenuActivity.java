@@ -199,7 +199,7 @@ public class MenuActivity extends AppCompatActivity {
         menu.add(android.view.Menu.NONE, opcion1, android.view.Menu.NONE, "PIN");
         menu.add(android.view.Menu.NONE, opcion2, android.view.Menu.NONE, "Información de la aplicación");
         menu.add(android.view.Menu.NONE, opcion3, android.view.Menu.NONE, "Tutorial");
-        menu.add(android.view.Menu.NONE, opcion4, android.view.Menu.NONE, "Eliminar");
+        menu.add(android.view.Menu.NONE, opcion4, android.view.Menu.NONE, "Eliminar PIN");
 
         return super.onCreateOptionsMenu(menu);
     }

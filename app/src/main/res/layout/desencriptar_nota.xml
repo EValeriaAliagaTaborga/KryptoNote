@@ -8,33 +8,43 @@
         android:id="@+id/lblClave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingrese la clave para visualizar la nota" />
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:text="Ingrese la clave para visualizar la nota"
+        android:textColor="@android:color/black"/>
 
     <EditText
         android:id="@+id/txtClave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="textPassword"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
         android:maxLines="1"
-        android:background="@color/colorPrimary"
-        android:ems="10" />
+        android:ems="10"
+        android:textColorHint="@android:color/holo_green_dark"/>
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_marginStart="65dp">
 
         <TableRow >
             <Button
                 android:id="@+id/btnCancelar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancelar" />
+                android:text="Cancelar"
+                android:textColor="@android:color/black"/>
 
             <Button
                 android:id="@+id/btnHecho"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hecho" />
+                android:text="Hecho"
+                android:textColor="@android:color/black"/>
         </TableRow>
     </TableLayout>
 
