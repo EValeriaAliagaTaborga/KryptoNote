@@ -8,34 +8,67 @@
         android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contraseña" />
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:text="Contrasenia"
+        android:textColor="@android:color/black"/>
 
     <EditText
         android:id="@+id/pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:background="@color/colorPrimaryDark"
+        android:textColorHint="@android:color/holo_green_dark"
         android:hint="Ingrese una contrasenia"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:inputType="numberPassword" />
+
+    <TextView
+        android:id="@+id/PasswordRep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:text="Repita la Contrasenia"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/reppass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Repita la contrasenia"
+        android:textColorHint="@android:color/holo_green_dark"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
         android:inputType="numberPassword" />
 
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_marginStart="65dp">
 
-        <TableRow >
+        <TableRow>
+
             <Button
                 android:id="@+id/cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancelar" />
+                android:text="Cancelar"
+                android:textColor="@android:color/black"/>
 
             <Button
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Aceptar" />
+                android:text="Aceptar"
+                android:textColor="@android:color/black"/>
         </TableRow>
     </TableLayout>
 

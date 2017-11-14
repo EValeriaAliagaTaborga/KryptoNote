@@ -5,31 +5,63 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/Password"
+        android:id="@+id/Password2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contraseña Falsa" />
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:text="Contrasenia Falsa"
+        android:textColor="@android:color/black"/>
 
     <EditText
         android:id="@+id/pass2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese una contrasenia diferente"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:ems="10" />
+        android:ems="10"
+        android:textColorHint="@android:color/holo_green_dark"
+        android:hint="Ingrese una contrasenia"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:inputType="numberPassword" />
+
+    <TextView
+        android:id="@+id/PasswordRep2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:text="Repita la Contrasenia Falsa"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/reppass2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Repita la contrasenia"
+        android:textColorHint="@android:color/holo_green_dark"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:inputType="numberPassword" />
+
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_marginStart="115dp">
 
-        <TableRow >
+        <TableRow>
 
             <Button
-                android:id="@+id/guardar"
+                android:id="@+id/button12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Guardar" />
+                android:text="Aceptar"
+                android:textColor="@android:color/black"/>
         </TableRow>
     </TableLayout>
 

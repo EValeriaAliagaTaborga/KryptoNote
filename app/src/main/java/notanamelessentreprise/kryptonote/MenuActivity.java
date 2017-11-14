@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -216,7 +217,7 @@ public class MenuActivity extends AppCompatActivity {
 
                 dialogo.setContentView(R.layout.login);
 
-                //final EditText usuario = (EditText) dialogo.findViewById(R.id.user);
+                final EditText repPassword = (EditText) dialogo.findViewById(R.id.reppass);
                 final EditText password = (EditText) dialogo.findViewById(R.id.pass);
 
                 dialogo.setTitle("PIN");
@@ -224,48 +225,69 @@ public class MenuActivity extends AppCompatActivity {
                 dialogo.setCancelable(false);
                 dialogo.show();
 
-                //
-                Button aceptar= (Button) dialogo.findViewById(R.id.button1);
-                aceptar.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        dialogo.dismiss();
-
-                        final Dialog dialogo = new Dialog(MenuActivity.this);
-
-                        dialogo.setContentView(R.layout.login_falso);
-
-                        final EditText password1 = (EditText) dialogo.findViewById(R.id.pass2);
-
-                        dialogo.setTitle("Pin Falso");
-
-                        dialogo.setCancelable(false);
-                        dialogo.show();
-                        Button guardarTodo= (Button) dialogo.findViewById(R.id.guardar);
-
-
-                        guardarTodo.setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
+                    //
+                Button aceptar = (Button) dialogo.findViewById(R.id.button1);
+                    aceptar.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            if(password.getText().toString().equals(repPassword.getText().toString())) {
                                 dialogo.dismiss();
-                                Toast toast1 = Toast.makeText(getApplicationContext(),
-                                        "Se guardaron las dos contrasenias",
-                                        Toast.LENGTH_SHORT);
-                                toast1.show();
 
+                                final Dialog dialogo = new Dialog(MenuActivity.this);
+
+                                dialogo.setContentView(R.layout.login_falso);
+
+                                final EditText repPassword2 = (EditText) dialogo.findViewById(R.id.reppass2);
+                                final EditText password2 = (EditText) dialogo.findViewById(R.id.pass2);
+
+                                dialogo.setTitle("Pin Falso");
+
+                                dialogo.setCancelable(false);
+                                dialogo.show();
+                                Button guardarTodo = (Button) dialogo.findViewById(R.id.button12);
+
+
+                                guardarTodo.setOnClickListener(new View.OnClickListener() {
+                                    public void onClick(View v) {
+                                        if(password2.getText().toString().equals(repPassword2.getText().toString())) {
+                                            dialogo.dismiss();
+
+                                            String pinV = password.getText().toString();
+                                            String pinF = password2.getText().toString();
+
+                                            SharedPreferences prefs =
+                                                    getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = prefs.edit();
+                                            editor.putString("passwordV", pinV);
+                                            editor.putString("passwordF", pinF);
+
+                                            Toast toast1 = Toast.makeText(getApplicationContext(),
+                                                "Se guardaron las dos contrasenias",
+                                                Toast.LENGTH_SHORT);
+                                                toast1.show();
+                                            MainActivity.setConCuenta(true);
+                                        }else{
+                                            Toast.makeText(MenuActivity.this,"Las contrasenias no son iguales, intentelo nuevamente.",Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }else{
+                                Toast.makeText(MenuActivity.this,"Las contrasenias no son iguales, intentelo nuevamente.",Toast.LENGTH_SHORT).show();
                             }
-                        });
-                    }
-                });
 
-                Button cancelar= (Button) dialogo.findViewById(R.id.cancel);
-                cancelar.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        dialogo.dismiss();
-                        Toast toast1 = Toast.makeText(getApplicationContext(),
-                                "Aún no tienes contrasenia",
-                                Toast.LENGTH_SHORT);
-                        toast1.show();
-                    }
-                });
+                        }
+
+                    });
+
+                    Button cancelar = (Button) dialogo.findViewById(R.id.cancel);
+                    cancelar.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            dialogo.dismiss();
+                            Toast toast1 = Toast.makeText(getApplicationContext(),
+                                    "Aún no tienes contrasenia",
+                                    Toast.LENGTH_SHORT);
+                            toast1.show();
+                        }
+                    });
                 break;
             case opcion2:
                 Intent intent = new Intent(context, InfoNane.class);

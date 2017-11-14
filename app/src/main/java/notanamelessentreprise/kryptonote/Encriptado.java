@@ -125,7 +125,7 @@ public class Encriptado extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             mostratEncriptado = true;
-                            Toast.makeText(context,"Clave incorrecta, por favor intente de nuevo",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,"Clave incorrecta, por favor intente de nuevo.",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -134,7 +134,7 @@ public class Encriptado extends AppCompatActivity {
                 btnCancelar.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         dialogo.dismiss();
-                        Toast.makeText(context, "No ha seleccionado ninguna accion",
+                        Toast.makeText(context, "No ha seleccionado ninguna accion.",
                                 Toast.LENGTH_SHORT).show();
                     }
 
