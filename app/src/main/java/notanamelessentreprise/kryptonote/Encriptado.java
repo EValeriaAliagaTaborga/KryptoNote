@@ -51,26 +51,222 @@ public class Encriptado extends AppCompatActivity {
         datosAux = datos;
         mostratEncriptado = recibe.getBooleanExtra("estado",true);
         contId = recibe.getIntExtra("contador_id", 0);
-        codificar(datos[2]);
+        String tituloCod = codificar(datos[2]);
+        String notaCod = codificar(datos[3]);
 
         contasenia = datos[4];
         if(!mostratEncriptado) {
             lblTitulo.setText(datos[0]);
             lblNota.setText(datos[1]);
         } else {
-            lblTitulo.setText(datos[2]);
-            lblNota.setText(datos[3]);
+            lblTitulo.setText(tituloCod);
+            lblNota.setText(notaCod);
         }
 
     }
 
-    private void codificar(String dato) {
+    private String codificar(String dato) {
         //48-57, 65-90, 97-122
         String s = dato.replace(" ", "");
    //         String s1 = s.replace("[58|64]", "");
         char[] array = s.toCharArray();
         Arrays.sort(array);
-
+        String res = "";
+        for(char c : array) {
+            switch (c) {
+                case 'A':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'B':
+                    res += (char)37 + (char)240 + (char)211;
+                    break;
+                case 'C':
+                    res += (char)125 + (char)164 + (char)222;
+                    break;
+                case 'D':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'E':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'F':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'G':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'H':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'I':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'J':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'K':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'L':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'M':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'N':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'O':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'P':
+                    res += (char)167;
+                    res += (char)96;
+                    res += (char)183;
+                    break;
+                case 'Q':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'R':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'S':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'T':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'U':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'V':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'W':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'X':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'Y':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'Z':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'a':
+                    res += (char)246 + (char)27 + (char)122;
+                    break;
+                case 'b':
+                    res += (char)204 + (char)64 + (char)42;
+                    break;
+                case 'c':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'd':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'e':
+                    res += (char)223 + (char)45 + (char)77;
+                    break;
+                case 'f':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'g':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'h':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'i':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'j':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'k':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'l':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'm':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'n':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'o':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'p':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'q':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'r':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 's':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 't':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'u':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'v':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'w':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'x':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'y':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case 'z':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '0':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '1':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '2':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '3':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '4':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '5':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '6':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '7':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '8':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                case '9':
+                    res += (char)48 + (char)200 + (char)183;
+                    break;
+                default:
+                    res += c;
+            }
+        }
+        return res;
 
     }
 
