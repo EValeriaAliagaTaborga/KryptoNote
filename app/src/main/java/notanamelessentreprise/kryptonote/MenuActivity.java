@@ -1,7 +1,9 @@
 package notanamelessentreprise.kryptonote;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,8 +18,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.GridLayout;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,10 +47,17 @@ public class MenuActivity extends AppCompatActivity {
 
     private SQLiteDatabase db;
     public static final int VERSION = 1;
+    private BaseDeDatos crearBD;
 
-    List<String[]> list = new ArrayList();
+    private List<String[]> list = new ArrayList();
+    private List<Integer> listBorrar = new ArrayList();
 
     private int contID = 0;
+
+    private boolean eliminarActivado = false;
+    private boolean[] estaSeleccionado;
+
+    private Button btnBorrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +68,10 @@ public class MenuActivity extends AppCompatActivity {
 
         context = this;
 
-        BaseDeDatos crearBD = new BaseDeDatos(context,VERSION);
+        crearBD = new BaseDeDatos(context,VERSION);
         db = crearBD.getWritableDatabase();
+
+        btnBorrar = (Button) findViewById(R.id.btnBorrar);
 
         grdLista = (GridLayout) findViewById(R.id.grdLista);
         grdLista.setColumnCount(2);
@@ -76,7 +90,6 @@ public class MenuActivity extends AppCompatActivity {
                 txtNota.setText(notas_existentes.getString(0));
                 txtNota.setGravity(Gravity.CENTER);
                 txtNota.setBackgroundResource(R.drawable.previewnota1);
-                //txtNota.setBackgroundColor(Color.CYAN);
                 txtNota.setTextColor(Color.rgb(12,69,35));
                 txtNota.setLayoutParams(new GridView.LayoutParams(anchoPantalla,500));
                 txtNota.setPadding(40,150,40,0);
@@ -89,29 +102,63 @@ public class MenuActivity extends AppCompatActivity {
                 array[3] = notas_existentes.getString(3);
                 array[4] = notas_existentes.getString(4);
                 list.add(cont,array);
-//                contID = Integer.parseInt(notas_existentes.getString(5));
                 cont++;
             }while(notas_existentes.moveToNext());
         }
 
         final int totNotas = grdLista.getChildCount();
 
-        for (int i= 0; i < totNotas; i++){
+        for (int i= 0; i < totNotas; i++) {
             final TextView icono = (TextView) grdLista.getChildAt(i);
             final int iconoID = i;
-            icono.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View view){
-                    Toast.makeText(context, iconoID+"", Toast.LENGTH_LONG).show();
-
-                    Intent intent = new Intent(context, Encriptado.class);
-                   // intent.putExtra("titulo_nota", icono.getText());
-                    intent.putExtra("datos_nota",list.get(iconoID));
-                    intent.putExtra("contador_id", iconoID);
-                    startActivity(intent);
+            icono.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                        Intent intent = new Intent(context, Encriptado.class);
+//                        finish();
+                        intent.putExtra("datos_nota", list.get(iconoID));
+                        intent.putExtra("contador_id", iconoID);
+                        startActivity(intent);
                 }
             });
-        }
 
+            icono.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show();
+
+                    AlertDialog.Builder Dialogo = new AlertDialog.Builder(context);
+
+                    Dialogo.setTitle("Alerta!");
+                    Dialogo.setMessage("¿Esta seguro que desea borrar la nota?");
+                    Dialogo.setIcon(R.drawable.ic_note);
+
+                    Dialogo.setPositiveButton("Si",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    crearBD.eliminarNota(iconoID);
+                                    for(int i = iconoID+1; i <= totNotas; i++) {
+                                        crearBD.actualizarId(i+1,i);
+                                    }
+                                    Intent a = new Intent(context, MenuActivity.class);
+                                    finish();
+                                    startActivity(a);
+
+                                }
+                            });
+                    Dialogo.setNegativeButton("No",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Toast.makeText(getApplicationContext(), "Cuidado donde presionas", Toast.LENGTH_SHORT).show();
+                                    dialog.cancel();
+                                }
+                            });
+                    Dialogo.show();
+
+                    return true;
+                }
+
+            });
+        }
 
         // boton flotante animado
         FabSpeedDial fabSpeedDial = (FabSpeedDial)findViewById(R.id.fabSpeedDial);
@@ -123,7 +170,7 @@ public class MenuActivity extends AppCompatActivity {
 
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
-               // Toast.makeText(MenuActivity.this, ""+ menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(MenuActivity.this, "+ menuItem.getTitle(), Toast.LENGTH_SHORT).show();
 
                 if(menuItem.getTitle().toString().equals("Nota")){
                     Intent intent = new Intent(context, EditNota.class);
@@ -227,6 +274,29 @@ public class MenuActivity extends AppCompatActivity {
             case opcion3:
                 Intent intent1 = new Intent(context, Tutorial.class);
                 startActivity(intent1);
+                break;
+            case opcion4:
+                eliminarActivado = true;
+                btnBorrar.setVisibility(View.VISIBLE);
+
+              /*  btnBorrar.setOnClickListener((new View.OnClickListener() {
+                    public void onClick(View v) {
+                        if(!listBorrar.isEmpty()) {
+                            for (int id : listBorrar) {
+                                crearBD.eliminarNota(id);
+                                estaSeleccionado[id] = false;
+                            }
+                        }
+                        eliminarActivado = false;
+                        btnBorrar.setVisibility(View.INVISIBLE);
+                        Toast.makeText(context, "Click", Toast.LENGTH_SHORT).show();
+
+                        Intent a = new Intent(context, MenuActivity.class);
+                        finish();
+                        startActivity(a);
+                    }
+                }));
+*/
                 break;
             default:
             return super.onOptionsItemSelected(item);

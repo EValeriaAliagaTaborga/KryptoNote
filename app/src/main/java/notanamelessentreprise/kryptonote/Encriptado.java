@@ -16,6 +16,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class Encriptado extends AppCompatActivity {
 
     private Context context;
@@ -49,6 +51,7 @@ public class Encriptado extends AppCompatActivity {
         datosAux = datos;
         mostratEncriptado = recibe.getBooleanExtra("estado",true);
         contId = recibe.getIntExtra("contador_id", 0);
+        codificar(datos[2]);
 
         contasenia = datos[4];
         if(!mostratEncriptado) {
@@ -58,6 +61,17 @@ public class Encriptado extends AppCompatActivity {
             lblTitulo.setText(datos[2]);
             lblNota.setText(datos[3]);
         }
+
+    }
+
+    private void codificar(String dato) {
+        //48-57, 65-90, 97-122
+        String s = dato.replace(" ", "");
+   //         String s1 = s.replace("[58|64]", "");
+        char[] array = s.toCharArray();
+        Arrays.sort(array);
+
+
     }
 
     @Override

@@ -64,6 +64,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     }
 
     public long actualizarNota(Nota nota) {
+
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         return sqLiteDatabase.update(
@@ -72,6 +73,25 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     }
 
+    public long actualizarId(int idAnt, int idNuevo) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(NotaContract.NotaEntry._ID,idNuevo);
+
+        return sqLiteDatabase.update(
+                NotaContract.NotaEntry.TABLE_NAME, values
+                , "id="+idAnt, null);
+
+    }
+
+    public long eliminarNota(int idNota) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        return sqLiteDatabase.delete(
+                NotaContract.NotaEntry.TABLE_NAME, "id="+idNota, null);
+
+    }
 
 }
 
