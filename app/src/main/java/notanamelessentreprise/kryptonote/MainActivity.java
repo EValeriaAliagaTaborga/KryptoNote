@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         //Intent intent = new Intent(context, EditNota.class);
         //startActivity(intent);
 
+        getSupportActionBar().hide();
+
         layoutMenu=(ImageView) findViewById(R.id.layoutMenu);
 
         layoutMenu.setOnClickListener(new View.OnClickListener() {
