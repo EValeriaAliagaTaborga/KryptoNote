@@ -51,7 +51,7 @@ public class Tutorial extends AppCompatActivity {
         textSliderView3.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
             @Override
             public void onSliderClick(BaseSliderView baseSliderView) {
-                Toast.makeText(context, "Como tu quieras, desde el pan hasta la salsa.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "¡Crea una nota!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, MenuActivity.class);
                 startActivity(intent);
             }

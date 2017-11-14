@@ -46,6 +46,7 @@ public class EditNota extends AppCompatActivity {
         txtTitulo = (EditText) findViewById(R.id.txtTitulo);
         txtNota = (EditText) findViewById(R.id.txtCuerpo);
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent recibe = getIntent();
