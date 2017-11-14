@@ -33,14 +33,6 @@ public class Tutorial extends AppCompatActivity {
         textSliderView
                 .description("Paso 1")
                 .image(R.drawable.background);
-        textSliderView.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
-            @Override
-            public void onSliderClick(BaseSliderView baseSliderView) {
-                Toast.makeText(context, "Con la más deliciosa carne y calidad.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, MenuActivity.class);
-                startActivity(intent);
-            }
-        });
         sliderShow.addSlider(textSliderView);
 
 
@@ -49,14 +41,6 @@ public class Tutorial extends AppCompatActivity {
         textSliderView2
                 .description("Paso 2")
                 .image(R.drawable.background);
-        textSliderView2.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
-            @Override
-            public void onSliderClick(BaseSliderView baseSliderView) {
-                Toast.makeText(context, "De sabor incomparable.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(context, MenuActivity.class);
-                startActivity(intent);
-            }
-        });
         sliderShow.addSlider(textSliderView2);
 
         //Slide con daimajia 3
